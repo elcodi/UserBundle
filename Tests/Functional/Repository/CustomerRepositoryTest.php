@@ -12,14 +12,14 @@
  * @version ##version_placeholder##
  */
 
-namespace Elcodi\UserBundle\Tests\Functional\Factory;
+namespace Elcodi\UserBundle\Tests\Functional\Repository;
 
 use Elcodi\CoreBundle\Tests\WebTestCase;
 
 /**
- * Class AddressFactoryTest
+ * Class CustomerRepositoryTest
  */
-class AddressFactoryTest extends WebTestCase
+class CustomerRepositoryTest extends WebTestCase
 {
     /**
      * Returns the callable name of the service
@@ -29,30 +29,30 @@ class AddressFactoryTest extends WebTestCase
     public function getServiceCallableName()
     {
         return [
-            'elcodi.core.user.factory.address',
-            'elcodi.factory.address',
+            'elcodi.core.user.repository.customer',
+            'elcodi.repository.customer',
         ];
     }
 
     /**
-     * Test address factory provider
+     * Test customer repository provider
      */
     public function testFactoryProvider()
     {
         $this->assertInstanceOf(
-            $this->container->getParameter('elcodi.core.user.entity.address.class'),
-            $this->container->get('elcodi.core.user.entity.address.instance')
+            $this->container->getParameter('elcodi.core.user.repository.customer.class'),
+            $this->container->get('elcodi.core.user.repository.customer')
         );
     }
 
     /**
-     * Test address factory provider alias
+     * Test customer repository provider alias
      */
     public function testFactoryProviderAlias()
     {
         $this->assertInstanceOf(
-            $this->container->getParameter('elcodi.core.user.entity.address.class'),
-            $this->container->get('elcodi.entity.address.instance')
+            $this->container->getParameter('elcodi.core.user.repository.customer.class'),
+            $this->container->get('elcodi.repository.customer')
         );
     }
 }
